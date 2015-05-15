@@ -1,0 +1,1 @@
+drawSubBoard(document.getElementById('f11'));

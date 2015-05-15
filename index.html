@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TicMyTac</title>
+	<link rel="stylesheet" type="text/css" href="ticmytac.css">
+</head>
+<body>
+
+<div id="container">
+	<div class="row">
+		<canvas class="field" id="f11" width="150" height="150" onclick="clickHandler(document.getElementById('f11'), 0)"></canvas>
+		<canvas class="field" id="f12" width="150" height="150" onclick="clickHandler(document.getElementById('f12'), 1)"></canvas>
+		<canvas class="field" id="f13" width="150" height="150" onclick="clickHandler(document.getElementById('f13'), 2)"></canvas>
+	</div>
+	<div class="row">
+		<canvas class="field" id="f21" width="150" height="150" onclick="clickHandler(document.getElementById('f21'), 3)"></canvas>
+		<canvas class="field" id="f22" width="150" height="150" onclick="clickHandler(document.getElementById('f22'), 4)"></canvas>
+		<canvas class="field" id="f23" width="150" height="150" onclick="clickHandler(document.getElementById('f23'), 5)"></canvas>
+	</div>
+	<div class="row">
+		<canvas class="field" id="f31" width="150" height="150" onclick="clickHandler(document.getElementById('f31'), 6)"></canvas>
+		<canvas class="field" id="f32" width="150" height="150" onclick="clickHandler(document.getElementById('f32'), 7)"></canvas>
+		<canvas class="field" id="f33" width="150" height="150" onclick="clickHandler(document.getElementById('f33'), 8)"></canvas>
+	</div>
+	<div class="row">
+		<button type="button" class="btn" id="reset" width="150" height="50" onclick="playAgain()">Play Again</button>
+	</div>
+</div>
+
+<script src="gameDisplay.js"></script>
+<script src="testCode.js"></script>
+
+</body>
+
+</html>
