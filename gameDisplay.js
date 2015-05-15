@@ -1,3 +1,6 @@
+/**
+*@param {htmlCanvas} subGame The canvas that 
+*/
 function drawSubBoard(subGame) {
 	var context = subGame.getContext('2d');
 	context.beginPath();
@@ -16,4 +19,12 @@ function drawSubBoard(subGame) {
 	context.lineWidth = subGame.width/60;
     context.strokeStyle = '#000000';
 	context.stroke();
+}
+/**
+*@param {htmlCanvas} subGame The canvas corresponding to the subGame where the mark will be made
+*@param {int} squaredId The position on the canvas that the user clicked
+*@param {int} turn The current turn; X is 1, O is 2
+*/
+function markSquare(subGame, squareId, turn) {
+	
 }
