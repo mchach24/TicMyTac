@@ -17,14 +17,14 @@ function subGame(id, canvas)
 	* @param {int} playerId The id of the player. 1 - X  2 - O
 	* @param {int} squareId The id for the square that the move was played 0-8
 	*/
-	this.movePlayed = function(playerId, squareId)
+	this.movePlayed = function(playerId, squareId, xPos, yPos)
 	{
 		if (!this.active || this.gameOver) return;
 		
 		
 		idArray[squareId] = playerId;
 		
-		//markSquare(this.canvas, squareId, playerId);
+		markSquare(this.canvas, xPos, yPos, playerId);
 		
 		detectGameOver();	//correct syntax?
 		

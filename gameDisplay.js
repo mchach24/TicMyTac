@@ -23,12 +23,11 @@ function drawSubBoard(subGame) {
 /**
 *This function draws an X or an O in the appropriate position of the canvas
 *@param {htmlCanvas} subGame The canvas corresponding to the subGame where the mark will be made
-*@param {int} squaredId The position on the canvas that the user clicked
 *@param {int} xPos The x coordinate position on the canvas
 *@param {int} yPos The y coordinate position on the canvas
 *@param {int} turn The current turn; X is 1, O is 2
 */
-function markSquare(subGame, squareId, xPos, yPos, turn) {
+function markSquare(subGame, xPos, yPos, turn) {
 	var size = 0;
 	if (turn == 1)
 	{

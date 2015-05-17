@@ -8,7 +8,7 @@ subGames.push(new subGame(5, document.getElementById('f23')));
 subGames.push(new subGame(6, document.getElementById('f31')));
 subGames.push(new subGame(7, document.getElementById('f32')));
 subGames.push(new subGame(8, document.getElementById('f33')));
-var turn = 1;
+var turn = 1; //1 - X, 2 - O
 var gameOver = false;
 
 function turnHandler(event, id, canvas) {
@@ -70,12 +70,13 @@ function turnHandler(event, id, canvas) {
 		x = 105;
 		y = 105;
 	}
+	subGames[id].movePlayed(turn, position, x, y);
 	if (turn == 1) {
-		markSquare(canvas, position, x, y, turn);
+		//markSquare(canvas, position, x, y, turn);
 		turn = 2;
 	}
 	else if (turn == 2) {
-		markSquare(canvas, position, x, y, turn);
+		//markSquare(canvas, position, x, y, turn);
 		turn = 1;
 	}
 }
