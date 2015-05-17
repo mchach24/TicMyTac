@@ -4,17 +4,17 @@
 function drawSubBoard(subGame) {
 	var context = subGame.getContext('2d');
 	context.beginPath();
-	context.moveTo(subGame.width/30,subGame.height/3);
-	context.lineTo(subGame.width/1.034,subGame.height/3);
+	context.moveTo(subGame.width/60,subGame.height/3);
+	context.lineTo(subGame.width/1.017,subGame.height/3);
 	
-	context.moveTo(subGame.width/30,subGame.height/1.5);
-	context.lineTo(subGame.width/1.034,subGame.height/1.5);
+	context.moveTo(subGame.width/60,subGame.height/1.5);
+	context.lineTo(subGame.width/1.017,subGame.height/1.5);
 	
-	context.moveTo(subGame.width/3,subGame.height/30);
-	context.lineTo(subGame.width/3,subGame.height/1.034);
+	context.moveTo(subGame.width/3,subGame.height/60);
+	context.lineTo(subGame.width/3,subGame.height/1.017);
 	
-	context.moveTo(subGame.width/1.5,subGame.height/30);
-	context.lineTo(subGame.width/1.5,subGame.width/1.034)
+	context.moveTo(subGame.width/1.5,subGame.height/60);
+	context.lineTo(subGame.width/1.5,subGame.width/1.017)
 	
 	context.lineWidth = subGame.width/60;
     context.strokeStyle = '#000000';
@@ -24,23 +24,22 @@ function drawSubBoard(subGame) {
 *This function draws an X or an O in the appropriate position of the canvas
 *@param {htmlCanvas} subGame The canvas corresponding to the subGame where the mark will be made
 *@param {int} squaredId The position on the canvas that the user clicked
+*@param {int} xPos The x coordinate position on the canvas
+*@param {int} yPos The y coordinate position on the canvas
 *@param {int} turn The current turn; X is 1, O is 2
 */
-function markSquare(subGame, squareId, turn) {
-	var xSize = 0;
-	var ySize = 0;
-	if (turn == 0)
+function markSquare(subGame, squareId, xPos, yPos, turn) {
+	var size = 0;
+	if (turn == 1)
 	{
-		xSize = subGame.width/3 - 2;
-		ySize = subGame.height/3 - 2;
+		size = subGame.width/3 - 2;
+		drawX(subGame, xPos, yPos, 0);
 	}
-	else if (turn == 1)
+	else if (turn == 2)
 	{
-		xSize = subGame.width/6;
-		ySize = subGame.height/6;
+		size = subGame.width/6;
+		drawO(subGame, (xPos - 5) + size, (yPos - 5) + size, 0);
 	}
-	
-	
 	
 }
 
@@ -67,7 +66,7 @@ function markCanvas(subGame, turn) {
 function drawO(canvas, xPos, yPos, type) {
 	var size = 0;
 	if (type == 0)
-		size = canvas.width/6 - 2;
+		size = canvas.width/6 - 5;
 	else if (type == 1)
 		size = canvas.width/2 - 5;
 		
@@ -90,7 +89,7 @@ function drawO(canvas, xPos, yPos, type) {
 function drawX(canvas, xPos, yPos, type) {
 	var size = 0;
 	if (type == 0)
-		size = canvas.width/3 - 2;
+		size = canvas.width/3 - 10;
 	else if (type == 1)
 		size = canvas.width - 5;
 
@@ -100,7 +99,7 @@ function drawX(canvas, xPos, yPos, type) {
 	context.lineTo(xPos + size, yPos + size);
 	context.moveTo(xPos + size, yPos);
 	context.lineTo(xPos, yPos + size);
-	if (size == 0)
+	if (size == 0) 
     	context.lineWidth = 2;
     else if (size == 1)
     	context.lineWidth = 5;    
