@@ -8,19 +8,19 @@
 
 <div id="container">
 	<div class="row">
-		<canvas class="field" id="f11" width="150" height="150" onclick="clickHandler(document.getElementById('f11'), 0)"></canvas>
-		<canvas class="field" id="f12" width="150" height="150" onclick="clickHandler(document.getElementById('f12'), 1)"></canvas>
-		<canvas class="field" id="f13" width="150" height="150" onclick="clickHandler(document.getElementById('f13'), 2)"></canvas>
+		<canvas class="field" id="f11" width="150" height="150" onclick="turnHandler(event, 0, document.getElementById('f11')) onmouseover="""></canvas>
+		<canvas class="field" id="f12" width="150" height="150" onclick="turnHandler(event, 1, document.getElementById('f12'))"></canvas>
+		<canvas class="field" id="f13" width="150" height="150" onclick="turnHandler(event, 2, document.getElementById('f13'))"></canvas>
 	</div>
 	<div class="row">
-		<canvas class="field" id="f21" width="150" height="150" onclick="clickHandler(document.getElementById('f21'), 3)"></canvas>
-		<canvas class="field" id="f22" width="150" height="150" onclick="clickHandler(document.getElementById('f22'), 4)"></canvas>
-		<canvas class="field" id="f23" width="150" height="150" onclick="clickHandler(document.getElementById('f23'), 5)"></canvas>
+		<canvas class="field" id="f21" width="150" height="150" onclick="turnHandler(event, 3, document.getElementById('f21'))"></canvas>
+		<canvas class="field" id="f22" width="150" height="150" onclick="turnHandler(event, 4, document.getElementById('f22'))"></canvas>
+		<canvas class="field" id="f23" width="150" height="150" onclick="turnHandler(event, 5, document.getElementById('f23'))"></canvas>
 	</div>
 	<div class="row">
-		<canvas class="field" id="f31" width="150" height="150" onclick="clickHandler(document.getElementById('f31'), 6)"></canvas>
-		<canvas class="field" id="f32" width="150" height="150" onclick="clickHandler(document.getElementById('f32'), 7)"></canvas>
-		<canvas class="field" id="f33" width="150" height="150" onclick="clickHandler(document.getElementById('f33'), 8)"></canvas>
+		<canvas class="field" id="f31" width="150" height="150" onclick="turnHandler(event, 6, document.getElementById('f31'))"></canvas>
+		<canvas class="field" id="f32" width="150" height="150" onclick="turnHandler(event, 7, document.getElementById('f32'))"></canvas>
+		<canvas class="field" id="f33" width="150" height="150" onclick="turnHandler(event, 8, document.getElementById('f33'))"></canvas>
 	</div>
 	<div class="row">
 		<button type="button" class="btn" id="reset" width="150" height="50" onclick="playAgain()">Play Again</button>
@@ -29,7 +29,8 @@
 
 <script src="subGame.js"></script>
 <script src="gameDisplay.js"></script>
-<script src="testCode.js"></script>
+<script src="mainGame.js"></script>
+<!-- <script src="testCode.js"></script> -->
 
 </body>
 

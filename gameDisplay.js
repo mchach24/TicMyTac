@@ -31,13 +31,13 @@ function markSquare(subGame, squareId, turn) {
 	var ySize = 0;
 	if (turn == 0)
 	{
-		xSize = subGame.getWidth/3 - 2;
-		ySize = subGame.getHeight/3 - 2;
+		xSize = subGame.width/3 - 2;
+		ySize = subGame.height/3 - 2;
 	}
 	else if (turn == 1)
 	{
-		xSize = subGame.getWidth/6;
-		ySize = subGame.getHeight/6;
+		xSize = subGame.width/6;
+		ySize = subGame.height/6;
 	}
 	
 	
@@ -53,11 +53,11 @@ function markSquare(subGame, squareId, turn) {
 function markCanvas(subGame, turn) {
 	if (turn == 1)
 	{
-		drawX(subGame, subGame.getWidth() - 5, subGame.getHeight() - 5, 1);
+		drawX(subGame, subGame.width - 5, subGame.height() - 5, 1);
 	}	
 	else if (turn == 2)
 	{
-		drawO(subGame, subGame.getWidth()/2, subGame.getHeight()/2, 1);
+		drawO(subGame, subGame.width/2, subGame.height()/2, 1);
 	}
 
 }
@@ -67,9 +67,9 @@ function markCanvas(subGame, turn) {
 function drawO(canvas, xPos, yPos, type) {
 	var size = 0;
 	if (type == 0)
-		size = canvas.getWidth/6 - 2;
+		size = canvas.width/6 - 2;
 	else if (type == 1)
-		size = canvas.getWidth/2 - 5;
+		size = canvas.width/2 - 5;
 		
 
 	var context = canvas.getContext('2d');
@@ -90,9 +90,9 @@ function drawO(canvas, xPos, yPos, type) {
 function drawX(canvas, xPos, yPos, type) {
 	var size = 0;
 	if (type == 0)
-		size = canvas.getWidth/3 - 2;
+		size = canvas.width/3 - 2;
 	else if (type == 1)
-		size = canvas.getWidth - 5;
+		size = canvas.width - 5;
 
 	var context = canvas.getContext('2d');
 	context.beginPath();
