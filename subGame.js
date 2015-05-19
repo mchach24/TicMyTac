@@ -19,49 +19,59 @@ function subGame(id, canvas)
 	*/
 	this.movePlayed = function(playerId, squareId, xPos, yPos)
 	{
-		if (!this.active || this.gameOver) return;
+		//alert("Active: " + this.active + " GameOver: " + gameOver + " Winner: " + this.winner);
+		if (!this.active || gameOver) return;
 		
 		if (idArray[squareId] == 0) {
 			markSquare(this.canvas, xPos, yPos, playerId);
 		}
 		idArray[squareId] = playerId;
 		
-		detectGameOver();
+		this.detectGameOver();
 		
 	}
 	
-	var detectGameOver = function()
+	this.detectGameOver = function()
 	{
+		//alert(idArray);
 		//horizontal row 1 win check
 		if (idArray[0] != 0 && idArray[0] == idArray[1] && idArray[0] == idArray[2]) {
+			//alert("detect 1");
 			this.winner = idArray[0];
 		}
 		//horizontal row 2 win check
 		else if (idArray[3] != 0 && idArray[3] == idArray[4] && idArray[3] == idArray[5]) {
+			//alert("detect 2");
 			this.winner = idArray[3];
 		}
 		//horizontal row 3 win check
 		else if (idArray[6] != 0 && idArray[6] == idArray[7] && idArray[6] == idArray[8]) {
+			//alert("detect 3");
 			this.winner = idArray[6];
 		}
 		//vertical column 1 win check
 		else if (idArray[0] != 0 && idArray[0] == idArray[3] && idArray[0] == idArray[6]) {
+			//alert("detect 4");
 			this.winner = idArray[0];
 		}
 		//vertical column 2 win check
 		else if (idArray[1] != 0 && idArray[1] == idArray[4] && idArray[1] == idArray[7]) {
+			//alert("detect 5");
 			this.winner = idArray[1];
 		}
 		//vertical column 3 win check
 		else if (idArray[2] != 0 && idArray[2] == idArray[5] && idArray[2] == idArray[8]) {
+			//alert("detect 6");
 			this.winner = idArray[2];
 		}
 		//diagonal starting from top left win check
 		else if (idArray[0] != 0 && idArray[0] == idArray[4] && idArray[0] == idArray[8]) {
+			//alert("detect 7");
 			this.winner = idArray[0];
 		}
 		//diagonal starting from top right win check
 		else if (idArray[2] != 0 && idArray[2] == idArray[4] && idArray[2] == idArray[6]) {
+			//alert("detect 8");
 			this.winner = idArray[2];
 		}
 
@@ -75,17 +85,35 @@ function subGame(id, canvas)
 				break;
 			}	
 		}
-		
+		//alert("subGame - before this.winner == 0 if statement: " + this.winner);
 		if (this.winner == 0)
+		{
 			if (boardFull) {
 				this.winner = 3;
 			}
 			else {
 				return;
 			}
+		}
+		//alert("subGame - after this.winner == 0 if statement");
 
+		this.setInactive();
+		gameOver = true;
+		if (this.winner == 1 || this.winner == 2)
+			markCanvas(this.canvas, this.winner);
+	}
+	
+	this.setActive = function ()
+	{
+		this.active = true;
+		this.canvas.className = "field";
+	}
+	
+	this.setInactive = function ()
+	{
 		this.active = false;
-		this.gameOver = true;
+		this.canvas.className = "inactive";
+		
 	}
 
 }

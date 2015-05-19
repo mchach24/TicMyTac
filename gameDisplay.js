@@ -49,13 +49,14 @@ function markSquare(subGame, xPos, yPos, turn) {
 *@param {int} turn The current turn; 1 - X, 2 - O
 */
 function markCanvas(subGame, turn) {
+	//alert("gameDisplay - markCanvas(). turn: " + turn);
 	if (turn == 1)
 	{
-		drawX(subGame, subGame.width - 5, subGame.height() - 5, 1);
+		drawX(subGame, 5, 5, 1);
 	}	
 	else if (turn == 2)
 	{
-		drawO(subGame, subGame.width/2, subGame.height()/2, 1);
+		drawO(subGame, subGame.width/2, subGame.height/2, 1);
 	}
 
 }
@@ -77,20 +78,25 @@ function drawO(canvas, xPos, yPos, type) {
 
     context.beginPath();
     context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-    if (size == 0)
+    if (type == 0)
     	context.lineWidth = 2;
-    else if (size == 1)
+    else if (type == 1)
     	context.lineWidth = 5;
     context.strokeStyle = '#212121';
     context.stroke();
 }
 
 function drawX(canvas, xPos, yPos, type) {
+	//if (type == 1)
+	//	alert("gameDisplay - drawX(). type is 1");
 	var size = 0;
 	if (type == 0)
 		size = canvas.width/3 - 10;
 	else if (type == 1)
+	{
 		size = canvas.width - 5;
+		//alert("gameDisplay - drawX(). type is 1. size: " + size + "x: " + xPos + " y: " + yPos);
+	}
 
 	var context = canvas.getContext('2d');
 	context.beginPath();
@@ -98,9 +104,9 @@ function drawX(canvas, xPos, yPos, type) {
 	context.lineTo(xPos + size, yPos + size);
 	context.moveTo(xPos + size, yPos);
 	context.lineTo(xPos, yPos + size);
-	if (size == 0) 
+	if (type == 0) 
     	context.lineWidth = 2;
-    else if (size == 1)
+    else if (type == 1)
     	context.lineWidth = 5;    
     context.strokeStyle = '#212121';
 	context.stroke();
