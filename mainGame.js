@@ -71,14 +71,15 @@ function turnHandler(event, id, canvas) {
 		y = 105;
 	}
 	valid = subGames[id].movePlayed(turn, position, x, y);
-	if (valid)
-	{
-		deactivateAllBut(position);
-	}
 	if (turn == 1)
 		turn = 2;
 	else
 		turn = 1;
+	if (valid)
+	{
+		deactivateAllBut(position);
+	}
+	
 	
 }
 
