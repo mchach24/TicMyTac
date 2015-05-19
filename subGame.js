@@ -21,12 +21,12 @@ function subGame(id, canvas)
 	{
 		if (!this.active || this.gameOver) return;
 		
-		
+		if (idArray[squareId] == 0) {
+			markSquare(this.canvas, xPos, yPos, playerId);
+		}
 		idArray[squareId] = playerId;
 		
-		markSquare(this.canvas, xPos, yPos, playerId);
-		
-		detectGameOver();	//correct syntax?
+		detectGameOver();
 		
 	}
 	
@@ -77,7 +77,7 @@ function subGame(id, canvas)
 		}
 		
 		if (this.winner == 0)
-			if ( boardFull) {
+			if (boardFull) {
 				this.winner = 3;
 			}
 			else {
