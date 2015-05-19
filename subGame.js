@@ -6,7 +6,7 @@ function subGame(id, canvas)
 {
 	this.id = id;
 	this.canvas = canvas;
-	var gameOver = false;
+	this.gameOver = false;
 	var idArray = [0,0,0,0,0,0,0,0,0]; //0 - empty, 1 - X, 2 - O
 	this.active = true;
 	this.winner = 0;
@@ -16,11 +16,12 @@ function subGame(id, canvas)
 	/**
 	* @param {int} playerId The id of the player. 1 - X  2 - O
 	* @param {int} squareId The id for the square that the move was played 0-8
+	* @return {boolean} did the move go through or not
 	*/
 	this.movePlayed = function(playerId, squareId, xPos, yPos)
 	{
 		//alert("Active: " + this.active + " GameOver: " + gameOver + " Winner: " + this.winner);
-		if (!this.active || gameOver) return;
+		if (!this.active || this.gameOver) return false;
 		
 		if (idArray[squareId] == 0) {
 			markSquare(this.canvas, xPos, yPos, playerId);
@@ -28,6 +29,8 @@ function subGame(id, canvas)
 		idArray[squareId] = playerId;
 		
 		this.detectGameOver();
+		
+		return true;
 		
 	}
 	
@@ -98,21 +101,27 @@ function subGame(id, canvas)
 		//alert("subGame - after this.winner == 0 if statement");
 
 		this.setInactive();
-		gameOver = true;
+		this.gameOver = true;
 		if (this.winner == 1 || this.winner == 2)
 			markCanvas(this.canvas, this.winner);
 	}
 	
 	this.setActive = function ()
 	{
-		this.active = true;
-		this.canvas.className = "field";
+		if (!this.gameOver)
+		{
+			this.active = true;
+			this.canvas.className = "field";
+		}
 	}
 	
 	this.setInactive = function ()
 	{
-		this.active = false;
-		this.canvas.className = "inactive";
+		if (!this.gameOver)
+		{
+			this.active = false;
+			this.canvas.className = "inactive";
+		}
 		
 	}
 

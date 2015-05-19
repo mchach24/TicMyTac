@@ -70,13 +70,35 @@ function turnHandler(event, id, canvas) {
 		x = 105;
 		y = 105;
 	}
-	subGames[id].movePlayed(turn, position, x, y);
-	if (turn == 1) {
-		//markSquare(canvas, position, x, y, turn);
-		turn = 2;
+	valid = subGames[id].movePlayed(turn, position, x, y);
+	if (valid)
+	{
+		deactivateAllBut(position);
 	}
-	else if (turn == 2) {
-		//markSquare(canvas, position, x, y, turn);
+	if (turn == 1)
+		turn = 2;
+	else
 		turn = 1;
+	
+}
+
+function deactivateAllBut(x)
+{
+	//alert("mainGame - deactiveAllBut()");
+	if (subGames[x].gameOver)
+	{
+		for (i = 0; i < 9; i++)
+		{
+			subGames[i].setActive();
+		}
+	}
+	else
+	{
+		subGames[x].setActive();
+		for (i = 0; i < 9; i++)
+		{
+			if (i == x) continue;
+			subGames[i].setInactive();
+		}
 	}
 }
