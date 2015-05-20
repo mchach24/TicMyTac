@@ -12,6 +12,8 @@ var turn = 1; //1 - X, 2 - O
 var gameOver = false;
 
 function turnHandler(event, id, canvas) {
+	if (gameOver)
+		return;
 	var position;
 	var x;
 	var y;
@@ -78,7 +80,9 @@ function turnHandler(event, id, canvas) {
 	if (valid)
 	{
 		deactivateAllBut(position);
+		detectGameWin();
 	}
+	
 	
 	
 }
@@ -102,4 +106,41 @@ function deactivateAllBut(x)
 			subGames[i].setInactive();
 		}
 	}
+}
+function detectGameWin() {
+	var winner = 0;
+	if (subGames[0].winner != 0 && subGames[0].winner != 3 && subGames[0].winner == subGames[1].winner && subGames[0].winner == subGames[2].winner) {
+		alert("mainGame - detectGameWin() - win type 1");
+		winner = subGames[0].winner;
+	}
+	else if (subGames[3].winner != 0 && subGames[3].winner != 3 && subGames[3].winner == subGames[4].winner && subGames[3].winner == subGames[5].winner) {
+		alert("mainGame - detectGameWin() - win type 2");
+		winner = subGames[3].winner;
+	}
+	else if (subGames[6].winner != 0 && subGames[6].winner != 3 && subGames[6].winner == subGames[7].winner && subGames[6].winner == subGames[8].winner) {
+		alert("mainGame - detectGameWin() - win type 3");
+		winner = subGames[6].winner;
+	}
+	else if (subGames[0].winner != 0 && subGames[0].winner != 3 && subGames[0].winner == subGames[3].winner && subGames[0].winner == subGames[6].winner) {
+		alert("mainGame - detectGameWin() - win type 4");
+		winner = subGames[0].winner;
+	}
+	else if (subGames[1].winner != 0 && subGames[1].winner != 3 && subGames[1].winner == subGames[4].winner && subGames[1].winner == subGames[7].winner) {
+		alert("mainGame - detectGameWin() - win type 5");
+		winner = subGames[1].winner;
+	}
+	else if (subGames[2].winner != 0 && subGames[2].winner != 3 && subGames[2].winner == subGames[5].winner && subGames[2].winner == subGames[8].winner) {
+		alert("mainGame - detectGameWin() - win type 6");
+		winner = subGames[2].winner;
+	}
+	else if (subGames[0].winner != 0 && subGames[0].winner != 3 && subGames[0].winner == subGames[4].winner && subGames[0].winner == subGames[8].winner) {
+		alert("mainGame - detectGameWin() - win type 7");
+		winner = subGames[0].winner;
+	}
+	else if (subGames[2].winner != 0 && subGames[2].winner != 3 && subGames[2].winner == subGames[4].winner && subGames[2].winner == subGames[6].winner) {
+		alert("mainGame - detectGameWin() - win type 8");
+		winner = subGames[2].winner;
+	}
+	if (winner != 0)
+		gameOver = true;
 }

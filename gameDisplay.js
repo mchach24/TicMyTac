@@ -82,7 +82,7 @@ function drawO(canvas, xPos, yPos, type) {
     	context.lineWidth = 2;
     else if (type == 1)
     	context.lineWidth = 5;
-    context.strokeStyle = '#212121';
+    context.strokeStyle = '#cc2121';
     context.stroke();
 }
 
@@ -108,6 +108,6 @@ function drawX(canvas, xPos, yPos, type) {
     	context.lineWidth = 2;
     else if (type == 1)
     	context.lineWidth = 5;    
-    context.strokeStyle = '#212121';
+    context.strokeStyle = '#2121cc';
 	context.stroke();
 }
