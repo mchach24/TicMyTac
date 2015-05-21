@@ -110,19 +110,19 @@ function deactivateAllBut(x)
 function detectGameWin() {
 	var winner = 0;
 	if (subGames[0].winner != 0 && subGames[0].winner != 3 && subGames[0].winner == subGames[1].winner && subGames[0].winner == subGames[2].winner) {
-		alert("mainGame - detectGameWin() - win type 1");
+		//alert("mainGame - detectGameWin() - win type 1");
 		winner = subGames[0].winner;
 	}
 	else if (subGames[3].winner != 0 && subGames[3].winner != 3 && subGames[3].winner == subGames[4].winner && subGames[3].winner == subGames[5].winner) {
-		alert("mainGame - detectGameWin() - win type 2");
+		//alert("mainGame - detectGameWin() - win type 2");
 		winner = subGames[3].winner;
 	}
 	else if (subGames[6].winner != 0 && subGames[6].winner != 3 && subGames[6].winner == subGames[7].winner && subGames[6].winner == subGames[8].winner) {
-		alert("mainGame - detectGameWin() - win type 3");
+		//alert("mainGame - detectGameWin() - win type 3");
 		winner = subGames[6].winner;
 	}
 	else if (subGames[0].winner != 0 && subGames[0].winner != 3 && subGames[0].winner == subGames[3].winner && subGames[0].winner == subGames[6].winner) {
-		alert("mainGame - detectGameWin() - win type 4");
+		//alert("mainGame - detectGameWin() - win type 4");
 		winner = subGames[0].winner;
 	}
 	else if (subGames[1].winner != 0 && subGames[1].winner != 3 && subGames[1].winner == subGames[4].winner && subGames[1].winner == subGames[7].winner) {
@@ -143,4 +143,59 @@ function detectGameWin() {
 	}
 	if (winner != 0)
 		gameOver = true;
+}
+function playAgain() {
+	clearCanvas();
+	subGames = [];
+	subGames.push(new subGame(0, document.getElementById('f11')));
+	subGames.push(new subGame(1, document.getElementById('f12')));	
+	subGames.push(new subGame(2, document.getElementById('f13')));
+	subGames.push(new subGame(3, document.getElementById('f21')));
+	subGames.push(new subGame(4, document.getElementById('f22')));
+	subGames.push(new subGame(5, document.getElementById('f23')));
+	subGames.push(new subGame(6, document.getElementById('f31')));
+	subGames.push(new subGame(7, document.getElementById('f32')));
+	subGames.push(new subGame(8, document.getElementById('f33')));
+	for (i = 0; i <= 8; i++ ) {
+		subGames[i].setActive();
+	}
+	turn = 1; //1 - X, 2 - O
+	gameOver = false;
+}
+function clearCanvas() {
+	var canvas = document.getElementById('f11');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f12');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f13');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f21');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f22');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f23');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f31');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f32');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f33');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
 }

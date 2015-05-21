@@ -1,10 +1,16 @@
+body {
+	background-color: #FAF8EF;
+}
 canvas {
-	background-color: #e0e0e0;
+	/*background-color: #CCC0B3; */
+	background-color: #eeeeee;
 	width: 150px;
-	border: 1px solid white;
+	border: 0px solid black;
 	float: left;
-	opacity: 0.75;
-	border-radius: 15px;
+	opacity: 0.5;
+	border-radius: 10px;
+	margin-top: 7.5px;
+	margin-left: 7.5px;
 }
 
 canvas.field {
@@ -12,18 +18,18 @@ canvas.field {
 }
 
 canvas.inactive {
-	background-color: #c0c0c0;
+	background-color: #cccccc;
 }
 
 button.btn {
-	height: 50px; width: 153px;
+	height: 50px; width: 160px;
 	float: left;
-	background-color: #9e9e9e;
+	background-color: #9a9a9a;
 	border: 0px solid black;
 	font-size: 20px;
 	border-radius: 7px;
-	margin-top: 35px;
-	margin-left: 152px;
+	margin-top: 25px;
+	margin-left: 160px;
 }
 
 button:hover {
@@ -31,10 +37,20 @@ button:hover {
 }
 
 div.row {
-	width: 456px;
+	width: 480px;
 	margin: 0 auto;
 }
 
 div#container {
 	width: 100%;
+}
+div#back {
+	width: 480px;
+	height: 480px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	background-color: #9a9a9a;
+	border-radius: 10px;
 }
