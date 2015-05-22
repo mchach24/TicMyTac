@@ -111,3 +111,63 @@ function drawX(canvas, xPos, yPos, type) {
     context.strokeStyle = '#2121cc';
 	context.stroke();
 }
+
+/**
+*@param {HTML Canvas} c1 Canvas to color
+*@param {HTML Canvas} c2 Canvas to color
+*@param {HTML Canvas} c3 Canvas to color
+*@param {int} player 1 - X - Blue, 2 - O - Red
+*/
+function colorSquares(c, player)
+{
+	var color;
+	if (player == 1)
+		color = "Blue";
+	else
+		color = "Red";
+		
+	for (i = 0; i < c.length; i++)
+	{
+		c[i].style.backgroundColor = color;
+	}
+	
+
+}
+
+function clearCanvas() {
+	var canvas = document.getElementById('f11');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f12');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f13');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f21');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f22');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f23');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f31');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f32');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var canvas = document.getElementById('f33');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+}

@@ -109,40 +109,97 @@ function deactivateAllBut(x)
 }
 function detectGameWin() {
 	var winner = 0;
+	var winningSquares = [];
 	if (subGames[0].winner != 0 && subGames[0].winner != 3 && subGames[0].winner == subGames[1].winner && subGames[0].winner == subGames[2].winner) {
 		//alert("mainGame - detectGameWin() - win type 1");
 		winner = subGames[0].winner;
+		winningSquares = [subGames[0].canvas, subGames[1].canvas, subGames[2].canvas];
 	}
 	else if (subGames[3].winner != 0 && subGames[3].winner != 3 && subGames[3].winner == subGames[4].winner && subGames[3].winner == subGames[5].winner) {
 		//alert("mainGame - detectGameWin() - win type 2");
 		winner = subGames[3].winner;
+		winningSquares = [subGames[3].canvas, subGames[4].canvas, subGames[5].canvas];
 	}
 	else if (subGames[6].winner != 0 && subGames[6].winner != 3 && subGames[6].winner == subGames[7].winner && subGames[6].winner == subGames[8].winner) {
 		//alert("mainGame - detectGameWin() - win type 3");
 		winner = subGames[6].winner;
+		winningSquares = [subGames[0].canvas, subGames[7].canvas, subGames[8].canvas];
 	}
 	else if (subGames[0].winner != 0 && subGames[0].winner != 3 && subGames[0].winner == subGames[3].winner && subGames[0].winner == subGames[6].winner) {
 		//alert("mainGame - detectGameWin() - win type 4");
 		winner = subGames[0].winner;
+		winningSquares = [subGames[0].canvas, subGames[3].canvas, subGames[6].canvas];
 	}
 	else if (subGames[1].winner != 0 && subGames[1].winner != 3 && subGames[1].winner == subGames[4].winner && subGames[1].winner == subGames[7].winner) {
-		alert("mainGame - detectGameWin() - win type 5");
+		//alert("mainGame - detectGameWin() - win type 5");
 		winner = subGames[1].winner;
+		winningSquares = [subGames[1].canvas, subGames[4].canvas, subGames[7].canvas];
 	}
 	else if (subGames[2].winner != 0 && subGames[2].winner != 3 && subGames[2].winner == subGames[5].winner && subGames[2].winner == subGames[8].winner) {
-		alert("mainGame - detectGameWin() - win type 6");
+		//alert("mainGame - detectGameWin() - win type 6");
 		winner = subGames[2].winner;
+		winningSquares = [subGames[2].canvas, subGames[5].canvas, subGames[8].canvas];
 	}
 	else if (subGames[0].winner != 0 && subGames[0].winner != 3 && subGames[0].winner == subGames[4].winner && subGames[0].winner == subGames[8].winner) {
-		alert("mainGame - detectGameWin() - win type 7");
+		//alert("mainGame - detectGameWin() - win type 7");
 		winner = subGames[0].winner;
+		winningSquares = [subGames[0].canvas, subGames[4].canvas, subGames[8].canvas];
 	}
 	else if (subGames[2].winner != 0 && subGames[2].winner != 3 && subGames[2].winner == subGames[4].winner && subGames[2].winner == subGames[6].winner) {
-		alert("mainGame - detectGameWin() - win type 8");
+		//alert("mainGame - detectGameWin() - win type 8");
 		winner = subGames[2].winner;
+		winningSquares = [subGames[2].canvas, subGames[4].canvas, subGames[6].canvas];
 	}
 	if (winner != 0)
+	{
+		setBoardInactive();
 		gameOver = true;
+		colorSquares(winningSquares, winner);
+		/*var winString;
+		if (winner == 1)
+			winString = "X";
+		else
+			winString = "O";
+			*/
+		//alert("Congrats! The " + winString + " player won.");		
+	}
+	var boardFull = true;
+	var xGames = [];
+	var oGames = [];
+	for (i = 0; i < 9; i++)
+	{
+		if (!subGames[i].gameOver)
+		{
+			boardFull = false;
+			break;
+		}
+		if (subGames[i].winner == 1)
+			xGames.push(subGames[i].canvas);
+		else if (subGames[i].winner == 2)
+			oGames.push(subGames[i].canvas);
+	}
+	
+	if (boardFull)
+	{
+		var winner;
+		if (xGames.length > oGames.length)
+		{
+			winner = 1;
+			colorSquares(xGames, winner);
+		}
+		else if (xGames.length < oGames.length)
+		{
+			winner = 2;
+			colorSquares(oGames, winner);
+		}
+		else 
+			winner = 3;
+			
+		
+			
+		
+		
+	}
 }
 function playAgain() {
 	clearCanvas();
@@ -162,40 +219,11 @@ function playAgain() {
 	turn = 1; //1 - X, 2 - O
 	gameOver = false;
 }
-function clearCanvas() {
-	var canvas = document.getElementById('f11');
-	var context = canvas.getContext('2d');
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	
-	var canvas = document.getElementById('f12');
-	var context = canvas.getContext('2d');
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	
-	var canvas = document.getElementById('f13');
-	var context = canvas.getContext('2d');
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	
-	var canvas = document.getElementById('f21');
-	var context = canvas.getContext('2d');
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	
-	var canvas = document.getElementById('f22');
-	var context = canvas.getContext('2d');
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	
-	var canvas = document.getElementById('f23');
-	var context = canvas.getContext('2d');
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	
-	var canvas = document.getElementById('f31');
-	var context = canvas.getContext('2d');
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	
-	var canvas = document.getElementById('f32');
-	var context = canvas.getContext('2d');
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	
-	var canvas = document.getElementById('f33');
-	var context = canvas.getContext('2d');
-	context.clearRect(0, 0, canvas.width, canvas.height);
+
+function setBoardInactive()
+{
+	for (i = 0; i < 9; i ++)
+	{
+		subGames[i].setInactive();
+	}
 }
