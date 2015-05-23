@@ -123,7 +123,7 @@ function detectGameWin() {
 	else if (subGames[6].winner != 0 && subGames[6].winner != 3 && subGames[6].winner == subGames[7].winner && subGames[6].winner == subGames[8].winner) {
 		//alert("mainGame - detectGameWin() - win type 3");
 		winner = subGames[6].winner;
-		winningSquares = [subGames[0].canvas, subGames[7].canvas, subGames[8].canvas];
+		winningSquares = [subGames[6].canvas, subGames[7].canvas, subGames[8].canvas];
 	}
 	else if (subGames[0].winner != 0 && subGames[0].winner != 3 && subGames[0].winner == subGames[3].winner && subGames[0].winner == subGames[6].winner) {
 		//alert("mainGame - detectGameWin() - win type 4");
